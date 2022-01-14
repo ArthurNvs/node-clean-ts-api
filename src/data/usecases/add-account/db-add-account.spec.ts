@@ -31,11 +31,11 @@ const makeAddAccountRepository = (): AddAccountRepository => {
 }
 interface SutTypes {
   sut: DbAddAccount
-  encryptStub: Encrypter
+  encrypterStub: Encrypter
   addAccountRepositoryStub: AddAccountRepository
 }
 
-const makeSut = (): any => {
+const makeSut = (): SutTypes => {
   const encrypterStub = makeEncrypter()
   const addAccountRepositoryStub = makeAddAccountRepository()
   const sut = new DbAddAccount(encrypterStub, addAccountRepositoryStub)
